@@ -16,4 +16,17 @@ public class MergeSortTest {
         assertThat(aList, is(sortedArray));
     }
 
+    @Test
+    public void testSortOneElement() {
+        Integer[] aList = new Integer[] { 6 };
+        MergeSort.sort(aList);
+        assertThat(aList, is(new Integer[] { 6 }));
+    }
+
+    @Test
+    public void testAlreadySorted() {
+        Integer[] aList = new Integer[] { 1, 2, 2, 6, 10, 11, 24, 50, 100 };
+        MergeSort.sort(aList);
+        assertThat(aList, is(new Integer[] { 1, 2, 2, 6, 10, 11, 24, 50, 100 }));
+    }
 }

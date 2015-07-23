@@ -19,7 +19,7 @@ public class MergeSort {
         assert arr.length > 0;
 
         Comparable[] aux = new Comparable[arr.length];
-        sort(arr, aux, 0, arr.length);
+        sort(arr, aux, 0, arr.length - 1);
     }
 
     @SuppressWarnings("rawtypes")
@@ -30,18 +30,18 @@ public class MergeSort {
         sort(arr, aux, low, mid);
         sort(arr, aux, mid + 1, high);
         merge(arr, aux, low, mid, high);
+
+        print(arr);
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void merge(Comparable[] arr, Comparable[] aux, int low, int mid, int high) {
-        for (int i = low; i < high; i++)
-            aux[i] = arr[i];
-
-        print(aux);
+        for (int k = low; k <= high; k++)
+            aux[k] = arr[k];
 
         int i = low;
         int j = mid + 1;
-        for (int k = low; k < high; k++) {
+        for (int k = low; k <= high; k++) {
             if (i > mid) {
                 arr[k] = aux[j++];
             } else if (j > high) {
@@ -51,9 +51,7 @@ public class MergeSort {
             } else {
                 arr[k] = aux[j++];
             }
-            print(arr);
         }
-
     }
 
     @SuppressWarnings("rawtypes")
