@@ -22,14 +22,16 @@ public class MergeSort {
         sort(arr, aux, 0, arr.length - 1);
     }
 
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void sort(Comparable[] arr, Comparable[] aux, int low, int high) {
         if (high <= low)
             return;
         int mid = low + (high - low) / 2;
         sort(arr, aux, low, mid);
         sort(arr, aux, mid + 1, high);
-        merge(arr, aux, low, mid, high);
+        if (arr[mid].compareTo(arr[mid + 1]) > 0) {
+            merge(arr, aux, low, mid, high);
+        }
 
         print(arr);
     }
