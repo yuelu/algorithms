@@ -20,7 +20,7 @@ public class ArrayStackTest {
     @Test
     public void test() {
 
-        ArrayStack<Integer> stack = new ArrayStack<>(5);
+        ArrayStack<Integer> stack = new ArrayStack<>();
 
         assertThat(stack.isEmpty(), is(true));
 
@@ -45,23 +45,6 @@ public class ArrayStackTest {
             actual.add(stack.pop());
             fail("Should throw stack empty exception");
         } catch (EmptyStackException e) {
-
-        }
-    }
-
-    @Test
-    public void testStackOverflow() {
-
-        ArrayStack<Integer> stack = new ArrayStack<>(3);
-        stack.push(5);
-        stack.push(4);
-        stack.push(3);
-        assertThat(stack.isEmpty(), is(false));
-
-        try {
-            stack.push(2);
-            fail("Should throw StackOverflowError");
-        } catch (StackOverflowError e) {
 
         }
     }
